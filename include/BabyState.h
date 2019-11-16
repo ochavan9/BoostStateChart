@@ -1,3 +1,6 @@
+#ifndef BABYSTATE_H
+#define BABYSTATE_H
+
 #include "boost/statechart/event.hpp"
 #include "boost/statechart/state_machine.hpp"
 #include "boost/statechart/simple_state.hpp"
@@ -15,3 +18,5 @@ class BabyState : public bsc::simple_state<BabyState, StateMachine> {
     BabyState() { std::cout << "NULL State ==> Baby State" << std::endl; }
     ~BabyState() { std::cout << "Baby State ==> NULL State" << std::endl; }
 };
+
+#endif //BABYSTATE_H

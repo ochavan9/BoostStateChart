@@ -1,3 +1,6 @@
+#ifndef STATEMACHINE_H
+#define STATEMACHINE_H
+
 #include "boost/statechart/event.hpp"
 #include "boost/statechart/state_machine.hpp"
 #include "boost/statechart/simple_state.hpp"
@@ -16,3 +19,5 @@ class StateMachine : public bsc::state_machine<StateMachine, BabyState> {
     StateMachine(){ std::cout << "Starting State Machine" << std::endl; }
     ~StateMachine() { std::cout << "Destroying State Machine" << std::endl; }
 };
+
+#endif //STATEMACHINE_H
