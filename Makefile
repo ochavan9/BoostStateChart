@@ -9,9 +9,9 @@ LIB		:= lib
 LIBRARIES	:=
 
 ifeq ($(OS),Windows_NT)
-EXECUTABLE	:= main.exe
+EXECUTABLE	:= BoostTest.exe
 else
-EXECUTABLE	:= main
+EXECUTABLE	:= BoostTest
 endif
 
 all: $(BIN)/$(EXECUTABLE)
@@ -23,4 +23,4 @@ run: all
 	./$(BIN)/$(EXECUTABLE)
 
 $(BIN)/$(EXECUTABLE): $(SRC)/*
-	$(CC) $(C_FLAGS) -I$(INCLUDE)/boost_1_71_0/ -L$(LIB) $^ -o $@ $(LIBRARIES)
+	$(CC) $(C_FLAGS) -I$(INCLUDE) -I$(INCLUDE)/boost_1_71_0/ -L$(LIB) $^ -o $@ $(LIBRARIES)
