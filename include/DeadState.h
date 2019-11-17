@@ -7,14 +7,12 @@
 #include "boost/statechart/transition.hpp"
 #include "boost/statechart/custom_reaction.hpp"
 #include "BabyState.h"
+#include "Event.h"
 #include <iostream>
 
 namespace bsc = boost::statechart;
 
 class StateMachine;
-
-//Event to Move from Dead State to Baby State
-class EventMoveToBabyState : public bsc::event<EventMoveToBabyState> {};
 
 //State needs to know which state machine it belongs to
 class DeadState : public bsc::simple_state<DeadState, StateMachine> {

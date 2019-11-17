@@ -7,23 +7,26 @@
 #include "boost/statechart/transition.hpp"
 #include "boost/statechart/custom_reaction.hpp"
 #include "ElderState.h"
+#include "DeadState.h"
+#include "Event.h"
 #include <iostream>
 
 namespace bsc = boost::statechart;
+namespace bmpl = boost::mpl;
 
 class StateMachine;
-
-//Event to Move from Adult State to Elder State
-class EventMoveToElderState : public bsc::event<EventMoveToElderState> {};
 
 //State needs to know which state machine it belongs to
 class AdultState : public bsc::simple_state<AdultState, StateMachine> {
     public:
     AdultState() { std::cout << "Entering Adult State" << std::endl; }
     ~AdultState() { std::cout << "Destroying Adult State" << std::endl; }
-    
-    //Automated Event Handler to handle the EventMoveToElderState and transit statemachine to Elder State
-    typedef bsc::transition<EventMoveToElderState, ElderState> reactions;
+
+    //Multiple Event Handlers to handle events and transit to respective state
+    typedef bmpl::list< 
+        bsc::transition<EventMoveToElderState, ElderState>,
+		bsc::transition<EventMoveToDeadState, DeadState> 
+	> reactions;
 };
 
 #endif //ADULTSTATE_H

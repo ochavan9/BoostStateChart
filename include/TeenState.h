@@ -7,14 +7,12 @@
 #include "boost/statechart/transition.hpp"
 #include "boost/statechart/custom_reaction.hpp"
 #include "AdultState.h"
+#include "Event.h"
 #include <iostream>
 
 namespace bsc = boost::statechart;
 
 class StateMachine;
-
-//Event to Move from Teen State to Adult State
-class EventMoveToAdultState : public bsc::event<EventMoveToAdultState> {};
 
 //State needs to know which state machine it belongs to
 class TeenState : public bsc::simple_state<TeenState, StateMachine> {
