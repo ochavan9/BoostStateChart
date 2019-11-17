@@ -23,8 +23,12 @@ class AdultState : public bsc::simple_state<AdultState, StateMachine> {
     //Multiple Event Handlers to handle events and transit to respective state
     typedef bmpl::list< 
         bsc::transition<EventMoveToElderState, ElderState>,
-		bsc::transition<EventMoveToDeadState, DeadState> 
+	    bsc::custom_reaction<EventMoveToDeadState>
 	> reactions;
+
+	bsc::result react(const EventMoveToDeadState& /*event*/) {
+		return transit<DeadState>();
+    }
 };
 
 #endif //ADULTSTATE_H
