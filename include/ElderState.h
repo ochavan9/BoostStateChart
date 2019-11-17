@@ -6,15 +6,15 @@
 #include "boost/statechart/simple_state.hpp"
 #include "boost/statechart/transition.hpp"
 #include "boost/statechart/custom_reaction.hpp"
-#include "BabyState.h"
+#include "DeadState.h"
 #include <iostream>
 
 namespace bsc = boost::statechart;
 
 class StateMachine;
 
-//Event to Move from Elder State to Baby State
-class EventMoveToBabyState : public bsc::event<EventMoveToBabyState> {};
+//Event to Move from Elder State to Dead State
+class EventMoveToDeadState : public bsc::event<EventMoveToDeadState> {};
 
 //State needs to know which state machine it belongs to
 class ElderState : public bsc::simple_state<ElderState, StateMachine> {
@@ -22,8 +22,8 @@ class ElderState : public bsc::simple_state<ElderState, StateMachine> {
     ElderState() { std::cout << "Entering Elder State" << std::endl; }
     ~ElderState() { std::cout << "Destroying Elder State" << std::endl; }
     
-    //Automated Event Handler to handle the EventMoveToBabyState and transit statemachine to Baby State
-    typedef bsc::transition<EventMoveToBabyState, BabyState> reactions;
+    //Automated Event Handler to handle the EventMoveToDeadtate and transit statemachine to Dead State
+    typedef bsc::transition<EventMoveToDeadState, DeadState> reactions;
 };
 
 #endif //ELDERSTATE_H
