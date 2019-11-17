@@ -1,11 +1,7 @@
 #ifndef STATEMACHINE_H
 #define STATEMACHINE_H
 
-#include "boost/statechart/event.hpp"
 #include "boost/statechart/state_machine.hpp"
-#include "boost/statechart/simple_state.hpp"
-#include "boost/statechart/transition.hpp"
-#include "boost/statechart/custom_reaction.hpp"
 #include <iostream>
 
 namespace bsc = boost::statechart;
