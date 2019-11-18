@@ -18,9 +18,6 @@ class TeenState : public bsc::simple_state<TeenState, StateMachine> {
     TeenState() { std::cout << "Entering TeenState" << std::endl; }
     ~TeenState() { std::cout << "Destroying Teen State" << std::endl; }
     
-    // //Automated Event Handler to handle the EventMoveToAdultState and transit statemachine to Adult State
-    // typedef bsc::transition<EventMoveToAdultState, AdultState> reactions;
-
     // The custom event handler
     typedef bsc::custom_reaction<EventMoveToAdultState> reactions;
 	bsc::result react(const EventMoveToAdultState& /*event*/) {
